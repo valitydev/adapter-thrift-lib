@@ -1,0 +1,1 @@
+# adapter-thrift-lib
