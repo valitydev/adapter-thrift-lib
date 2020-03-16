@@ -2,22 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.rbkmoney.adapter-thrift-lib</groupId>
         <artifactId>adapter-thrift-lib</artifactId>
         <version>1.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cds-utils</artifactId>
+    <packaging>jar</packaging>
 
     <properties>
-        <damsel.version>1.391-8fe5f98</damsel.version>
-        <jackson-databind.version>2.9.7</jackson-databind.version>
+        <cds-proto.version>1.56-f6ac992</cds-proto.version>
     </properties>
-
-    <artifactId>damsel-utils</artifactId>
-    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -30,14 +28,8 @@
         </dependency>
         <dependency>
             <groupId>com.rbkmoney</groupId>
-            <artifactId>damsel</artifactId>
-            <version>${damsel.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-databind.version}</version>
+            <artifactId>cds-proto</artifactId>
+            <version>${cds-proto.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
