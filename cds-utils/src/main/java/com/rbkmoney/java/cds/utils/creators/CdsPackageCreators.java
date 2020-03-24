@@ -1,6 +1,5 @@
 package com.rbkmoney.java.cds.utils.creators;
 
-import com.rbkmoney.cds.base.BankCard;
 import com.rbkmoney.cds.storage.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -10,6 +9,18 @@ public class CdsPackageCreators {
 
     public static CardData createCardData(String pan) {
         return new CardData().setPan(pan);
+    }
+
+    public static CardData createCardData(String pan, String cardHolderName) {
+        return createCardData(pan).setCardholderName(cardHolderName);
+    }
+
+    public static CardData createCardDataWithExpDate(String pan, String cardHolderName, String month, String year) {
+        return createCardData(pan, cardHolderName).setExpDate(createExpDate(month, year));
+    }
+
+    public static ExpDate createExpDate(String month, String year) {
+        return new ExpDate().setMonth(Byte.valueOf(month)).setYear(Short.valueOf(year));
     }
 
     public static SessionData createSessionData(AuthData authData) {
@@ -47,10 +58,6 @@ public class CdsPackageCreators {
 
     public static Auth3DS createAuth3DS(String cryptogram) {
         return createAuth3DS(cryptogram, null);
-    }
-
-    public static PutCardDataResult createPutCardDataResult(BankCard bankCard, String session) {
-        return new PutCardDataResult(bankCard, session);
     }
 
 }
