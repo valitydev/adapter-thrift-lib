@@ -338,7 +338,7 @@ public class ProxyProviderPackageCreators {
         return context.getSession().getState();
     }
 
-    private static String extractIpAddress(DisposablePaymentResource disposablePaymentResource) {
+    public static String extractIpAddress(DisposablePaymentResource disposablePaymentResource) {
         return Optional.ofNullable(disposablePaymentResource)
                 .map(DisposablePaymentResource::getClientInfo)
                 .map(ClientInfo::getIpAddress).orElse(DEFAULT_IP_ADDRESS);
