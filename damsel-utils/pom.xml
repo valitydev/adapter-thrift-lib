@@ -7,12 +7,12 @@
     <parent>
         <groupId>com.rbkmoney.adapter-thrift-lib</groupId>
         <artifactId>adapter-thrift-lib</artifactId>
-        <version>1.0.4</version>
+        <version>1.0.5</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <properties>
-        <damsel.version>1.391-8fe5f98</damsel.version>
+        <damsel.version>1.431-2f62a8c</damsel.version>
         <jackson-databind.version>2.9.7</jackson-databind.version>
     </properties>
 
@@ -23,10 +23,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.rbkmoney.woody</groupId>
             <artifactId>woody-thrift</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.rbkmoney</groupId>
