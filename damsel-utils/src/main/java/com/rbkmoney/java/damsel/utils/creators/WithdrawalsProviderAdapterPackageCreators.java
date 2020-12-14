@@ -4,9 +4,11 @@ import com.rbkmoney.damsel.base.Timer;
 import com.rbkmoney.damsel.domain.Failure;
 import com.rbkmoney.damsel.domain.TransactionInfo;
 import com.rbkmoney.damsel.msgpack.Value;
+import com.rbkmoney.damsel.withdrawals.provider_adapter.FinishIntent;
 import com.rbkmoney.damsel.withdrawals.provider_adapter.FinishStatus;
 import com.rbkmoney.damsel.withdrawals.provider_adapter.Intent;
 import com.rbkmoney.damsel.withdrawals.provider_adapter.ProcessResult;
+import com.rbkmoney.damsel.withdrawals.provider_adapter.Success;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -24,25 +26,49 @@ public class WithdrawalsProviderAdapterPackageCreators {
     }
 
     // ProxyResult
-    public static ProcessResult createProcessResult(Intent intent, Value nextState) {
-        return new ProcessResult(intent).setNextState(nextState);
+    public static ProcessResult createProcessResult(Intent intent, Value nextState, TransactionInfo transactionInfo) {
+        return new ProcessResult(intent).setNextState(nextState).setTrx(transactionInfo);
     }
 
     public static ProcessResult createProcessResult(Intent intent) {
-        return WithdrawalsProviderAdapterPackageCreators.createProcessResult(intent, null);
+        return WithdrawalsProviderAdapterPackageCreators.createProcessResult(intent, null, null);
+    }
+
+    public static ProcessResult createProcessResult(Intent intent, Value nextStat) {
+        return WithdrawalsProviderAdapterPackageCreators.createProcessResult(intent, nextStat, null);
+    }
+
+    public static ProcessResult createProcessResult(Intent intent, TransactionInfo transactionInfo) {
+        return WithdrawalsProviderAdapterPackageCreators.createProcessResult(intent, null, transactionInfo);
     }
 
     // FinishIntent
+    @Deprecated
     public static Intent createFinishIntentSuccess(TransactionInfo transactionInfo) {
-        return Intent.finish(new com.rbkmoney.damsel.withdrawals.provider_adapter.FinishIntent(createFinishStatusSuccess(transactionInfo)));
+        return Intent.finish(new FinishIntent(createFinishStatusSuccess(transactionInfo)));
     }
 
+    @Deprecated
     public static FinishStatus createFinishStatusSuccess(TransactionInfo transactionInfo) {
-        return FinishStatus.success(new com.rbkmoney.damsel.withdrawals.provider_adapter.Success(transactionInfo));
+        Success success = new com.rbkmoney.damsel.withdrawals.provider_adapter.Success();
+        success.setTrxInfo(transactionInfo);
+        return FinishStatus.success(success);
+    }
+
+    public static FinishStatus createFinishStatusSuccess() {
+        return FinishStatus.success(new com.rbkmoney.damsel.withdrawals.provider_adapter.Success());
+    }
+
+    public static Intent createFinishIntentFailure(Failure failure) {
+        return Intent.finish(new FinishIntent(createFinishStatusFailure(failure)));
     }
 
     public static ProcessResult createProcessResultFailure(Failure failure) {
-        return createProcessResult(Intent.finish(new com.rbkmoney.damsel.withdrawals.provider_adapter.FinishIntent(createFinishStatusFailure(failure))));
+        return createProcessResult(createFinishIntentFailure(failure));
+    }
+
+    public static ProcessResult createProcessResultFailure(Failure failure, TransactionInfo transactionInfo) {
+        return createProcessResult(createFinishIntentFailure(failure), transactionInfo);
     }
 
     public static FinishStatus createFinishStatusFailure(Failure failure) {
