@@ -5,20 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.rbkmoney</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0.5</version>
+        <groupId>dev.vality</groupId>
+        <artifactId>library-parent-pom</artifactId>
+        <version>1.0.1</version>
         <relativePath/>
     </parent>
 
-    <groupId>com.rbkmoney.adapter-thrift-lib</groupId>
+    <groupId>dev.vality.adapter-thrift-lib</groupId>
     <artifactId>adapter-thrift-lib</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <name>adapter-thrift-lib</name>
     <description>Supporting libraries for thrift protocols</description>
-    <url>https://github.com/rbkmoney/adapter-thrift-lib</url>
+    <url>https://github.com/valitydev/adapter-thrift-lib</url>
 
     <licenses>
         <license>
@@ -27,28 +27,17 @@
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <name>Anatoly Cherkasov</name>
-            <email>a.cherkasov@rbkmoney.com</email>
-            <organization>RBK.money</organization>
-            <organizationUrl>https://rbk.money</organizationUrl>
-        </developer>
-    </developers>
-
     <scm>
-        <connection>scm:git:git://github.com/rbkmoney/adapter-thrift-lib.git</connection>
-        <developerConnection>scm:git:ssh://github.com/rbkmoney/adapter-thrift-lib.git</developerConnection>
-        <url>https://github.com/rbkmoney/adapter-thrift-lib/tree/master</url>
+        <connection>scm:git:git://github.com/valitydev/adapter-thrift-lib.git</connection>
+        <developerConnection>scm:git:ssh://github.com/valitydev/adapter-thrift-lib.git</developerConnection>
+        <url>https://github.com/valitydev/adapter-thrift-lib/tree/master</url>
     </scm>
 
     <properties>
-        <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
-        <dockerfile.base.service.tag>57e26d8ee999d7b0b50248c22afc63e6f926d276</dockerfile.base.service.tag>
         <dockerfile.registry>${env.REGISTRY}</dockerfile.registry>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <java.version>15</java.version>
     </properties>
 
     <modules>
@@ -72,23 +61,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.2</version>
-                <configuration>
-                    <destFile>${sonar.jacoco.reportPath}</destFile>
-                    <append>true</append>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
@@ -105,13 +77,13 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.8</version>
+                <version>1.18.22</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>com.rbkmoney.woody</groupId>
+                <groupId>dev.vality.woody</groupId>
                 <artifactId>woody-thrift</artifactId>
-                <version>[1.1.21,)</version>
+                <version>1.0.1</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>

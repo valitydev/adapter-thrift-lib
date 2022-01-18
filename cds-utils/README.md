@@ -8,7 +8,7 @@ CDS Utils
 
 ```
 <dependency>
-    <groupId>com.rbkmoney.adapter-thrift-lib</groupId>
+    <groupId>dev.vality.adapter-thrift-lib</groupId>
     <artifactId>cds-utils</artifactId>
     <version>${cds-utils.version}</version>
 </dependency>
@@ -17,12 +17,12 @@ CDS Utils
 В зависимостях также должны быть указаны
 ```
 <dependency>
-    <groupId>com.rbkmoney</groupId>
+    <groupId>dev.vality</groupId>
     <artifactId>cds-proto</artifactId>
     <version>${cds-proto.version}</version>
 </dependency>
 <dependency>
-    <groupId>com.rbkmoney</groupId>
+    <groupId>dev.vality</groupId>
     <artifactId>damsel</artifactId>
     <version>${damsel.version}</version>
 </dependency>
