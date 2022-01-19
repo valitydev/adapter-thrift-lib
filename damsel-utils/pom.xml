@@ -13,7 +13,7 @@
 
     <properties>
         <damsel.version>1.541-df3e38d</damsel.version>
-        <jackson-databind.version>2.9.10.5</jackson-databind.version>
+        <jackson-databind.version>2.9.10.8</jackson-databind.version>
 
         <checkstyle.config.suppressions.path>./src/main/resources/checkstyle/checkstyle-suppressions.xml</checkstyle.config.suppressions.path>
     </properties>
