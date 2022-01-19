@@ -9,8 +9,6 @@ import dev.vality.woody.thrift.impl.http.error.THTransportErrorMapper;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import static dev.vality.java.damsel.utils.extractors.ProxyProviderPackageExtractors.extractBankCardTokenProvider;
-
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProxyProviderVerification {
 

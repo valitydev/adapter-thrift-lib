@@ -39,8 +39,8 @@ public class DomainPackageCreators {
         );
     }
 
-    public static dev.vality.damsel.domain.Cash createCash(CurrencyRef currency, Long amount) {
-        return new dev.vality.damsel.domain.Cash(amount, currency);
+    public static Cash createCash(CurrencyRef currency, Long amount) {
+        return new Cash(amount, currency);
     }
 
     @Deprecated

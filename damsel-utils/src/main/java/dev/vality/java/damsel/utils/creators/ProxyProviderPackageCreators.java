@@ -2,6 +2,7 @@ package dev.vality.java.damsel.utils.creators;
 
 import dev.vality.damsel.base.Timer;
 import dev.vality.damsel.domain.*;
+import dev.vality.damsel.proxy_provider.Cash;
 import dev.vality.damsel.proxy_provider.Invoice;
 import dev.vality.damsel.proxy_provider.InvoicePayment;
 import dev.vality.damsel.proxy_provider.InvoicePaymentRefund;
@@ -97,13 +98,13 @@ public class ProxyProviderPackageCreators {
     }
 
     public static RecurrentPaymentTool createRecurrentPaymentTool(DisposablePaymentResource disposablePaymentResource,
-                                                                  dev.vality.damsel.proxy_provider.Cash cash) {
+                                                                  Cash cash) {
         return new RecurrentPaymentTool().setPaymentResource(disposablePaymentResource).setMinimalPaymentCost(cash);
     }
 
     public static RecurrentPaymentTool createRecurrentPaymentTool(String id,
                                                                   DisposablePaymentResource disposablePaymentResource,
-                                                                  dev.vality.damsel.proxy_provider.Cash cash) {
+                                                                  Cash cash) {
         return new RecurrentPaymentTool()
                 .setPaymentResource(disposablePaymentResource)
                 .setMinimalPaymentCost(cash)
@@ -184,7 +185,7 @@ public class ProxyProviderPackageCreators {
     public static InvoicePayment createInvoicePaymentWithTrX(String invoicePaymentId,
                                                              String createdAt,
                                                              PaymentResource paymentResource,
-                                                             dev.vality.damsel.proxy_provider.Cash cost,
+                                                             Cash cost,
                                                              TransactionInfo transactionInfo) {
         return createInvoicePaymentWithTrX(
                 invoicePaymentId, createdAt, paymentResource, cost, transactionInfo, null
@@ -194,7 +195,7 @@ public class ProxyProviderPackageCreators {
     public static InvoicePayment createInvoicePaymentWithTrX(String invoicePaymentId,
                                                              String createdAt,
                                                              PaymentResource paymentResource,
-                                                             dev.vality.damsel.proxy_provider.Cash cost,
+                                                             Cash cost,
                                                              TransactionInfo transactionInfo,
                                                              ContactInfo contactInfo) {
         return new InvoicePayment()
@@ -208,13 +209,13 @@ public class ProxyProviderPackageCreators {
 
     public static Invoice createInvoice(String invoicePaymentId,
                                         String createdAt,
-                                        dev.vality.damsel.proxy_provider.Cash cost) {
+                                        Cash cost) {
         return new Invoice().setId(invoicePaymentId).setCreatedAt(createdAt).setCost(cost);
     }
 
     public static InvoicePaymentRefund createInvoicePaymentRefund(String refundId,
                                                                   TransactionInfo trx,
-                                                                  dev.vality.damsel.proxy_provider.Cash cash) {
+                                                                  Cash cash) {
         return new InvoicePaymentRefund()
                 .setId(refundId)
                 .setTrx(trx)

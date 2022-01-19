@@ -4,11 +4,7 @@ import dev.vality.damsel.base.Timer;
 import dev.vality.damsel.domain.Failure;
 import dev.vality.damsel.domain.TransactionInfo;
 import dev.vality.damsel.msgpack.Value;
-import dev.vality.damsel.withdrawals.provider_adapter.FinishIntent;
-import dev.vality.damsel.withdrawals.provider_adapter.FinishStatus;
-import dev.vality.damsel.withdrawals.provider_adapter.Intent;
-import dev.vality.damsel.withdrawals.provider_adapter.ProcessResult;
-import dev.vality.damsel.withdrawals.provider_adapter.Success;
+import dev.vality.damsel.withdrawals.provider_adapter.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -17,14 +13,12 @@ import static dev.vality.java.damsel.utils.creators.BasePackageCreators.createTi
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class WithdrawalsProviderAdapterPackageCreators {
 
-    public static dev.vality.damsel.withdrawals.provider_adapter.Intent createIntentWithSleepIntent(Integer timer) {
-        return dev.vality.damsel.withdrawals.provider_adapter.Intent.sleep(
-                createSleepIntent(createTimerTimeout(timer))
-        );
+    public static Intent createIntentWithSleepIntent(Integer timer) {
+        return Intent.sleep(createSleepIntent(createTimerTimeout(timer)));
     }
 
-    public static dev.vality.damsel.withdrawals.provider_adapter.SleepIntent createSleepIntent(Timer timer) {
-        return new dev.vality.damsel.withdrawals.provider_adapter.SleepIntent(timer);
+    public static SleepIntent createSleepIntent(Timer timer) {
+        return new SleepIntent(timer);
     }
 
     // ProxyResult
@@ -52,13 +46,13 @@ public class WithdrawalsProviderAdapterPackageCreators {
 
     @Deprecated
     public static FinishStatus createFinishStatusSuccess(TransactionInfo transactionInfo) {
-        Success success = new dev.vality.damsel.withdrawals.provider_adapter.Success();
+        Success success = new Success();
         success.setTrxInfo(transactionInfo);
         return FinishStatus.success(success);
     }
 
     public static FinishStatus createFinishStatusSuccess() {
-        return FinishStatus.success(new dev.vality.damsel.withdrawals.provider_adapter.Success());
+        return FinishStatus.success(new Success());
     }
 
     public static Intent createFinishIntentFailure(Failure failure) {
