@@ -5,15 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.rbkmoney.adapter-thrift-lib</groupId>
+        <groupId>dev.vality.adapter-thrift-lib</groupId>
         <artifactId>adapter-thrift-lib</artifactId>
-        <version>1.0.6</version>
+        <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <properties>
-        <damsel.version>1.466-060478e</damsel.version>
+        <damsel.version>1.541-df3e38d</damsel.version>
         <jackson-databind.version>2.9.10.5</jackson-databind.version>
+
+        <checkstyle.config.suppressions.path>./src/main/resources/checkstyle/checkstyle-suppressions.xml</checkstyle.config.suppressions.path>
     </properties>
 
     <artifactId>damsel-utils</artifactId>
@@ -26,12 +28,12 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.rbkmoney.woody</groupId>
+            <groupId>dev.vality.woody</groupId>
             <artifactId>woody-thrift</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.rbkmoney</groupId>
+            <groupId>dev.vality</groupId>
             <artifactId>damsel</artifactId>
             <version>${damsel.version}</version>
             <scope>provided</scope>

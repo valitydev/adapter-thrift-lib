@@ -8,7 +8,7 @@ Damsel Utils
 
 ```
 <dependency>
-    <groupId>com.rbkmoney.adapter-thrift-lib</groupId>
+    <groupId>dev.vality.adapter-thrift-lib</groupId>
     <artifactId>damsel-utils</artifactId>
     <version>${damsel-utils.version}</version>
 </dependency>
@@ -17,7 +17,7 @@ Damsel Utils
 В зависимостях также должны быть указаны
 ```
 <dependency>
-    <groupId>com.rbkmoney</groupId>
+    <groupId>dev.vality</groupId>
     <artifactId>damsel</artifactId>
     <version>${damsel.version}</version>
 </dependency>

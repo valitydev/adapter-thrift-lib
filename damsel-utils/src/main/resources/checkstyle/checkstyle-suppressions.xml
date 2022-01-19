@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+        "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <suppress checks="OverloadMethodsDeclarationOrder"
+              files="dev.vality.java.damsel.utils.creators.ProxyProviderPackageCreators.java"/>
+    <suppress checks="AbbreviationAsWordInName"
+              files="dev.vality.java.damsel.utils.creators.ProxyProviderPackageCreators.java"/>
+</suppressions>
