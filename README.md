@@ -1,12 +1,13 @@
 # adapter-thrift-lib
 
-Вспомогательные библиотеки для трифтовых протоколов
+UPD.: archived, use https://github.com/valitydev/adapter-common-lib
+---
 
+Вспомогательные библиотеки для трифтовых протоколов
 
 ### Разработчики
 
 - [Anatoly Cherkasov](https://github.com/avcherkasov)
-
 
 ### Описание:
 
